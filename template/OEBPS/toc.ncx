@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx version="2005-1" xml:lang="zh" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+    <head>
+        <meta name="dtb:uid" content="8b49b816-7836-4ecc-8681-86b443883d2e"/>
+        <meta name="dtb:depth" content="2"/>
+        <meta name="dtb:totalPageCount" content="0"/>
+        <!-- must be 0 -->
+        <meta name="dtb:maxPageNumber" content="0"/>
+        <!-- must be 0 -->
+    </head>
+    <docTitle>
+        <text><%=title%></text>
+    </docTitle>
+    <docAuthor>
+        <text><%=author%></text>
+    </docAuthor>
+    <navMap>
+        <navPoint class="toc" id="preface" playOrder="1">
+            <navLabel><text>前言</text></navLabel>
+            <content src="preface.html" />
+        </navPoint>
+        <% for(var i=0,len=tocItem.length;i<len;i++){ %>
+            <navPoint class="toc" id="<%=tocItem[i].filename%>" playOrder="<%=i+2%>">
+                <navLabel>
+                    <text><%=tocItem[i].title%></text>
+                </navLabel>
+                <content src="<%=tocItem[i].filename%>.html"/>
+            </navPoint>
+        <%}%>
+    </navMap>
+</ncx>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId">
+
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:title><%=title%></dc:title>
+        <dc:language>zh</dc:language>
+        <dc:identifier id="BookId" opf:scheme="URN"><%=ISBN%></dc:identifier>
+        <dc:creator opf:role="aut"><%=author%></dc:creator>
+        <dc:publisher><%=publisher%></dc:publisher>
+        <dc:date opf:event="publication"><%=date.split(/[-\/]/g)[0]%></dc:date>
+        <dc:date opf:event="creation"><%=date%></dc:date>
+        <meta name="cover" content="cover"/>
+    </metadata>
+
+    <manifest>
+        <item id="titlepage" href="titlepage.html" media-type="application/xhtml+xml"/>
+        <item id="preface" href="preface.html" media-type="application/xhtml+xml"/>
+        <%for(var i=0,len=tocItem.length;i<len;i++){%>
+            <item id="<%=tocItem[i].filename%>" href="<%=tocItem[i].filename%>.html" media-type="application/xhtml+xml"/>
+        <%}%>
+        <item id="afterword" href="afterword.html" media-type="application/xhtml+xml"/>
+        <item id="stylesheet" href="css/easybook.css" media-type="text/css"/>
+        <item id="figure-1" href="images/jk_weixin.png" media-type="image/png"/>
+        <item id="figure-2" href="images/Node.js.png" media-type="image/png"/>
+        <item id="figure-3" href="images/chapter.jpg" media-type="image/jpg"/>
+        <item id="figure-4" href="images/book_view.png" media-type="image/png"/>
+        <item id="figure-5" href="images/jk_book.png" media-type="image/png"/>
+        <item id="cover" href="images/cover.jpg" media-type="image/jpeg"/>
+        <item id="font-1" href="fonts/Inconsolata.ttf" media-type="application/x-font-ttf"/>
+        <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    </manifest>
+
+    <spine toc="ncx">
+        <itemref idref="titlepage"/>
+        <itemref idref="preface"/>
+        <%for(var i=0,len=tocItem.length;i<len;i++){%>
+            <itemref idref="<%=tocItem[i].filename%>"/>
+        <%}%>
+        <itemref idref="afterword"/>
+    </spine>
+
+    <guide>
+        <reference href="titlepage.html" type="cover" title="Cover"/>
+    </guide>
+
+</package>
