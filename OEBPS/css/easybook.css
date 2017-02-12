@@ -609,8 +609,7 @@ div.container {
     margin-top: 1em;
 }
 
-#header{display:none;}
-.twelve.columns{display:none;}
+
 /* @toc
    -------------------------------------------------------------------------- */
 /* ebook toc is defined using divs as recommended by Kindle Publishing Guidelines
